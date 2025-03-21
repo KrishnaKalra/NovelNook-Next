@@ -16,6 +16,6 @@ export default function Home() {
   //   console.log(user);
   // })
   return (
-    <ReviewPage user='' />
+    <ReviewPage />
   );
 }

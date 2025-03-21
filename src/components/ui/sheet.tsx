@@ -31,7 +31,7 @@ function SheetPortal({
 }
 
 function SheetOverlay({
-  className,
+  className='',
   ...props
 }) {
   return (

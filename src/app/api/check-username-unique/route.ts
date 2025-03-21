@@ -1,4 +1,4 @@
-import { User } from "@/models/userModel";
+import  User from "@/models/userModel";
 import dbConnect from "../../../../libs/dbConnect";
 import {z} from 'zod'
 import { usernameValidation } from "@/validators/signUpSchema";

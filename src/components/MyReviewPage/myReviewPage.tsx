@@ -18,11 +18,10 @@ function ReviewPage() {
     let user:User=session?.user as User;
     useEffect(()=>{
         fetchReview();
-    },[])
+    },[user])
     const fetchReview = async () => {
         let response;
-            console.log(user);
-        response=await axios.get('/api/reviews');
+        response=await axios.get(`/api/userReview/${user._id}`);
         console.log(response.data);
         setData(response.data);
     };

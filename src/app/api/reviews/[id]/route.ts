@@ -55,7 +55,7 @@ export async function PUT(req: Request, props: { params: Promise<{ id: string }>
     }
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(req: Request,  props: { params: Promise<{ id: string }> }) {
     try {
         await dbConnect();
         const session = await getServerSession(authOptions)
@@ -70,7 +70,8 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
                 { status: 401 }
             )
         }
-        await deleteReview(params.id);
+        const {id}=await props.params;
+        await deleteReview(id);
         return NextResponse.json({ message: "Review deleted successfully" });
     } catch (error) {
         return NextResponse.json({ error: (error as Error).message }, { status: 400 });

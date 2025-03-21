@@ -1,6 +1,6 @@
 
 import mongoose from "mongoose";
-import { User } from "../models/userModel";
+import User  from "../models/userModel";
 import { UserType } from "@/validators/userValidator";
 
 

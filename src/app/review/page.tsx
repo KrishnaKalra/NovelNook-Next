@@ -16,7 +16,7 @@ const review = () => {
         <Button className='!shadow-2xl'>Post</Button>
       </form> */}
       
-      <MyForm />
+      <MyForm reviewId={''}/>
       
       </div>
       <Image src='/book.png' alt='book' height={900} width={600} className='hidden md:flex h-[500px] w-[500px] md:h-[600px] md:w-[600px]' />

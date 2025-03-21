@@ -1,9 +1,8 @@
 import { NextResponse,NextRequest } from "next/server";
 import axios from "axios";
-export async function GET(request: NextRequest, { params }: { params: { isbn: string } }) {
+export async function GET(request: NextRequest, props: { params: Promise<{ isbn: string }> }) {
     try {
-        console.log(params);
-        const  isbn  =  params.isbn;
+        const  {isbn}  = await props.params  ;
         console.log("Fetching details for ISBN:", isbn);
 
         const link = `http://openlibrary.org/api/volumes/brief/isbn/${isbn}.json`;

@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { Review, IReview } from "../models/reviewModel";
-
 export const createReview = async (reviewData: Partial<IReview>) => {
     try {
         const review = new Review(reviewData);

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createUser, getUserById } from "@/services/userService";
 import mongoose from "mongoose";
 import dbConnect from "../../../../libs/dbConnect";
-import { User } from "@/models/userModel";
+import  User  from "@/models/userModel";
 import { UserValidator } from "@/validators/userValidator";
 import bcrypt from "bcryptjs";
 import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";

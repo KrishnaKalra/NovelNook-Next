@@ -2,9 +2,7 @@ import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs"
 import dbConnect from '../../../../../libs/dbConnect';
-import { User } from '@/models/userModel';
-
-
+import User from '@/models/userModel';
 export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
@@ -17,12 +15,12 @@ export const authOptions: NextAuthOptions = {
             async authorize(credentials: any): Promise<any> {
                 await dbConnect();
                 try {
-                    const user = await User.findOne({
+                    const user= await User.findOne({
                         $or: [
                             { email: credentials.identifier },
                             { username: credentials.identifier }
                         ]
-                    })
+                    });
                     console.log(user);
                     if (!user) {
                         console.log('No user found with this email')
