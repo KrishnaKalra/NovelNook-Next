@@ -94,9 +94,9 @@ const Page = () => {
         </Form>
         <div className='text-center mt-4'>
           <p>
-            Already a member?{' '}
-            <Link href='/sign-in' className='text-blue-600 hover:text-blue-800'>
-            Sign in</Link>
+            New to NovelNook?{' '}
+            <Link href='/sign-up' className='text-blue-600 hover:text-blue-800'>
+            Sign Up</Link>
           </p>
         </div>
       </div>
