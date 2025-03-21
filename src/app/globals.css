@@ -137,8 +137,10 @@
     @apply bg-background text-foreground;
   }
 }
-@layer utilities{
-  .TextAlignLast{
+@layer utilities {
+  @media (min-width: 700px) {
+    .TextAlignLast {
       text-align-last: center;
+    }
   }
 }
