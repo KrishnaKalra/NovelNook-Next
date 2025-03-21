@@ -39,27 +39,27 @@ function ReviewPage() {
         router.replace(`/review/${reviewId}`)
     }
     return (
-        <div className="mt-10" >
+        <div className="mt-10 min-h-[100vh]" >
             {
                 data.map((one, index) => (
                     <div
                         key={index}
-                        className="my-10 sm:my-20 flex w-[100%] flex-col items-center"
+                        className=" my-10 sm:my-20 flex w-[100%] flex-col items-center"
                     >
                         <div className="h-90% flex w-[97%] justify-between md:w-[85%] gap-5 sm:gap-15" >
                             <img
                                 src={`https://covers.openlibrary.org/b/isbn/${one.isbn}-L.jpg`}
                                 className="h-[70%] w-[40%] md:w-[35%]"
                             />
-                            <div className='flex flex-col sm:pt-5 sm:flex-row w-[60%] justify-between'>
-                            < div className="flex w-[95%] flex-col  md:gap-8 flex-wrap " >
-                                <p className="font-alegreya-sc xs:text-xl sm:text-4xl md:text-center md:text-4xl lg:text-5xl xl:text-6xl" >
+                            <div className='flex flex-col pt:1 sm:pt-5 sm:flex-row w-[60%] justify-between'>
+                            < div className="flex w-[95%] flex-col gap-2  md:gap-8 flex-wrap " >
+                                <p className="font-alegreya-sc font-bold text-xl sm:text-4xl md:text-center md:text-4xl lg:text-5xl xl:text-6xl" >
                                     "{one.title}"
                                 </p>
                                 < p className="xs:text-[10px]/[0.3rem] font-semibold md:font-encode-sans-semi-condensed hidden text-center sm:flex justify-center sm:text-center md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.5rem]" >
                                     "{one.author}"
                                 </p>
-                                < p className="xs:text-xl sm:font-lemon pt-2 text-[0.8rem] sm:mt-10 sm:mb-8 text-justify sm:TextAlignLast sm:text-2xl sm:font-light lg:text-3xl xl:text-4xl" >
+                                < p className="xs:text-xl font-extralight font-merienda pt-2 text-[0.8rem] sm:mt-10 sm:mb-8 text-justify sm:TextAlignLast sm:text-2xl sm:font-light lg:text-3xl xl:text-4xl" >
                                     "{one.comment}"
                                 </p>
                                 < p className="font-lemon text-[12px] font-light sm:font-normal sm:text-right md:text-xl lg:text-2xl xl:text-3xl" >

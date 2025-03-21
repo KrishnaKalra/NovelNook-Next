@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono,Alegreya_SC,Lemon,Encode_Sans_Semi_Condensed} from "next/font/google";
+import { Geist, Geist_Mono,Alegreya_SC,Lemon,Encode_Sans_Semi_Condensed,Merienda} from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer/footer";
 import Header from "@/components/Header/header";
@@ -20,6 +20,12 @@ const lemon = Lemon({
   subsets: ['latin'],
   style: 'normal',
   weight: ['400'],
+});
+const merienda = Merienda({
+  variable: "--font-merienda",
+  subsets: ['latin'],
+  style: 'normal',
+  weight: ["300" , "400" ,"500" , "600" ,"700" ,"800" ,"900" ],
 });
 const encodeSansSemiCondensed = Encode_Sans_Semi_Condensed({
   variable: "--font-encode-sans-semi-condensed",
@@ -47,7 +53,7 @@ export default function RootLayout({
     <html lang="en">
       <AuthProvider>
       <body
-        className={`${alegreyaSc.variable} ${lemon.variable} ${encodeSansSemiCondensed.variable} antialiased bg-[#F2F0D2]`}
+        className={`${alegreyaSc.variable} ${lemon.variable} ${merienda.variable} ${encodeSansSemiCondensed.variable} antialiased bg-[#F2F0D2]`}
       >
         <Header/>
         {children}

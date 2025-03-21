@@ -4,6 +4,8 @@ import React from 'react'
 import { usePathname } from 'next/navigation'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
 import { CiMenuFries } from 'react-icons/ci'
+import { signOut, useSession } from 'next-auth/react'
+import { User } from 'next-auth'
 
 const links = [
     {
@@ -20,6 +22,8 @@ const links = [
     },
 ]
 const Nav = () => {
+    const { data: session, status } = useSession();
+    let user: User = session?.user as User;
     const pathname = usePathname();
     return (
         <Sheet>
@@ -32,13 +36,24 @@ const Nav = () => {
                         NovelNook<span>.</span>
                     </Link>
                 </div>
-                <nav className='flex flex-col justify-center   ml-10 gap-10'>
+                <nav className='flex flex-col justify-center  ml-10 gap-10'>
                     {
                         links.map((link, index) => {
                             return (
                                 <p><Link href={link.path} key={index} className={`${link.path === pathname && "text-white font-bold border-b-2 !border-accent"} text-2xl captalize  text-white hover:text-accent font-encode-sans-semi-condensed transition-all`}>{link.name}</Link></p>
                             )
                         }
+                        )
+                    }
+                    {
+                        session ? (
+                            <>
+                                <p onClick={()=>(signOut())}className={` text-2xl captalize  text-white hover:text-accent font-encode-sans-semi-condensed transition-all`}>Log Out</p>
+                            </>
+                        ) : (
+                            <Link href="/sign-in">
+                                <p className={` text-2xl captalize  text-white hover:text-accent font-encode-sans-semi-condensed transition-all`}>Sign In</p>
+                            </Link>
                         )
                     }
                 </nav>

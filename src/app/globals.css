@@ -117,6 +117,7 @@
 @theme{
   --font-primary:var(--font-alegreya-sc);
   --font-alegreya-sc:var(--font-alegreya-sc);
+  --font-merienda:var(--font-merienda);
   --font-lemon:var(--font-lemon);
   --font-encode-sans-semi-condensed:var(--font-encode-sans-semi-condensed);
   --container-padding:15px;
