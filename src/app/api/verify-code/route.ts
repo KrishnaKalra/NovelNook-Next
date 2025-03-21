@@ -8,10 +8,13 @@ const VerifyBodySchema=z.object({
 
 export async function POST(request:Request){
     dbConnect();
+    
+   
 
+    //This is the actual code for verification but for sending Email to other we need a premium subscription i have made such that all random value will return true
     try {
-        const {username,code}=await request.json();
-        const decodedUsername=decodeURIComponent(username);
+     const {username,code}=await request.json();
+     const decodedUsername=decodeURIComponent(username);
 
         const result=VerifyBodySchema.safeParse({code});
         console.log(result);
@@ -34,35 +37,45 @@ export async function POST(request:Request){
             {status:500}
             )
         }
-        const isCodeValid=user.verifyCode===code;
-        const isCodeNotExpired=new Date(user.verifyCodeExpiry)>new Date();
-        if(isCodeValid&&isCodeNotExpired){
+        {//making all code true
             user.isVerified=true;
             await user.save();
             return Response.json({
-                success:true,
-                message:"Account Verified Successfully"
+            success:true,
+            message:"Account Verified Successfully"
             },{
-                status:200
-            })
-        }else if(!isCodeNotExpired){
-            return Response.json(
-                {
-                    success:false,
-                    message:"Verification code has expired,please signup again to get a new code"
-                },
-                {status:400}
-                )
+              status:200
+            });
         }
-        else{
-            return Response.json(
-                {
-                    success:false,
-                    message:"Incorrect Verification code"
-                },
-                {status:400}
-                ) 
-        }
+    //     const isCodeValid=user.verifyCode===code;
+    //     const isCodeNotExpired=new Date(user.verifyCodeExpiry)>new Date();
+    //     if(isCodeValid&&isCodeNotExpired){
+    //         user.isVerified=true;
+    //         await user.save();
+    //         return Response.json({
+    //             success:true,
+    //             message:"Account Verified Successfully"
+    //         },{
+    //             status:200
+    //         })
+    //     }else if(!isCodeNotExpired){
+    //         return Response.json(
+    //             {
+    //                 success:false,
+    //                 message:"Verification code has expired,please signup again to get a new code"
+    //             },
+    //             {status:400}
+    //             )
+    //     }
+    //     else{
+    //         return Response.json(
+    //             {
+    //                 success:false,
+    //                 message:"Incorrect Verification code"
+    //             },
+    //             {status:400}
+    //             ) 
+    //     }
     } catch (error) {
         console.error("Error verifying user",error);
         return Response.json(
