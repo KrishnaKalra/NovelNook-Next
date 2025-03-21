@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📖 NovelNook: Assignment Project  
 
-## Getting Started
+## 📌 Overview  
 
-First, run the development server:
+NovelNook is an interactive platform where book enthusiasts can share, discover, and review their favorite books. Designed to foster a vibrant literary community, it serves as a space where readers can:  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Express their thoughts on books  
+- Recommend must-read books  
+- Engage in meaningful discussions  
+- Post, edit, and delete detailed book reviews  
+- Rate books based on their reading experience  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Technologies Used  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Frontend & UI  
+- **Next.js (with TypeScript)** – Server-side rendering, static generation, and better performance  
+- **Tailwind CSS & DaisyUI** – Utility-first styling and pre-designed UI components  
+- **ShadCN** – Modern and elegant UI components  
 
-## Learn More
+### Backend & Database  
+- **MongoDB Atlas** – Cloud-based NoSQL database for storing users, books, and reviews  
+- **Mongoose** – ORM for MongoDB to handle schemas and database interactions  
+- **NextAuth.js (with JWT)** – Secure authentication (Google, GitHub, email, etc.)  
+- **REST API / Next.js API Routes** – Backend logic to handle user reviews, authentication, and book data  
 
-To learn more about Next.js, take a look at the following resources:
+### Additional Services  
+- **Resend** – Email API service for sending OTPs, account verification, and notifications  
+- **Open Library API** – For fetching book data (titles, authors, covers, etc.)  
+- **Vercel** – Hosting and deployment platform optimized for Next.js applications  
+- **CRUD Operations** – Full Create, Read, Update, and Delete functionality for books, reviews, and user profiles  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔗 Links  
 
-## Deploy on Vercel
+- **Live Website**: [NovelNook](https://novel-nook-next.vercel.app/)  
+- **GitHub Repository**: [NovelNook-Next](https://github.com/KrishnaKalra/NovelNook-Next)  
+- **Video Demo**: [Watch Here](https://drive.google.com/file/d/1S7DUMsm8paxBOvtlMp18DC9k_bBnWa66/view?usp=sharing)  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚠️ Important Note  
+
+The free tier of the Resend API allows sending OTPs only to the owner of the account.  
+Due to this limitation, I have implemented a workaround where you can enter any random numbers to verify your account, as you won’t be able to receive the actual OTP email.  
+This ensures you can still experience the authentication flow while testing the platform.  
+
+---
+
+Happy reading and reviewing! 📚✨  
