@@ -7,7 +7,7 @@ import Image from 'next/image'
 const review = () => {
   return (
     <div className='h-[100vh] w-[100vw] flex justify-around items-center'>
-      <div className='bg-white rounded-2xl h-[70%] w-[375px] flex items-center justify-center border-2 border-gray-200 shadow-2xl'>
+      <div className='bg-white px-[10px]  rounded-2xl h-[70%] w-[350px] xs:w-[375px] flex items-center justify-center border-2 border-gray-200 shadow-2xl'>
       {/* <form className='flex flex-col w-[90%] h-[88%] gap-4'>
         <Input type='text' placeholder='ISBN'/>
         <Input type='text' placeholder='Title of Book'/>

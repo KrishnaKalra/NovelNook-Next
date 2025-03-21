@@ -44,14 +44,14 @@ function ReviewPage() {
                 data.map((one, index) => (
                     <div
                         key={index}
-                        className=" m-10 sm:m-20 flex w-[100%] flex-col items-center"
+                        className="my-10 sm:my-20 flex w-[100%] flex-col items-center"
                     >
                         <div className="h-90% flex w-[97%] justify-between md:w-[85%] gap-5 sm:gap-15" >
                             <img
                                 src={`https://covers.openlibrary.org/b/isbn/${one.isbn}-L.jpg`}
                                 className="h-[70%] w-[40%] md:w-[35%]"
                             />
-                            <div className='flex flex-col pt-5 sm:flex-row w-[60%] justify-between'>
+                            <div className='flex flex-col sm:pt-5 sm:flex-row w-[60%] justify-between'>
                             < div className="flex w-[95%] flex-col  md:gap-8 flex-wrap " >
                                 <p className="font-alegreya-sc xs:text-xl sm:text-4xl md:text-center md:text-4xl lg:text-5xl xl:text-6xl" >
                                     "{one.title}"
