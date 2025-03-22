@@ -46,6 +46,7 @@ const MyForm = ({ reviewId }) => {
       form.setValue('isbn', response.data.isbn)
       form.setValue("author", response.data.author);
       form.setValue("title", response.data.title);
+      form.setValue("comment",response.data.comment);
     }
     if(session?.user)
       form.setValue('userId',user._id);
