@@ -14,13 +14,17 @@ function ReviewPage() {
     const pathname=usePathname();
     const {data:session,status}=useSession();
     const [userId,setUserId]=useState('');
+    const [isLoading,setIsLoading]=useState(false);
     let user:User=session?.user as User;
     useEffect(()=>{
         fetchReview();
     },[])
+
     const fetchReview = async () => {
         //console.log(user);
+        setIsLoading(true);
         let response=await axios.get('/api/reviews');
+        setIsLoading(false);
         //console.log(response.data);
         setData(response.data);
     };
@@ -39,7 +43,9 @@ function ReviewPage() {
     return (
         <div className="mt-10 min-h-[100vh]" >
             {
-                data.map((one, index) => (
+               (isLoading)?(
+                    <div className='h-[100vh] w-[100vw] flex justify-center items-center'>
+                 <div className="border-gray-200 h-20 w-20 animate-spin rounded-full border-8 border-t-black" /> </div>):( data.map((one, index) => (
                     <div
                         key={index}
                         className=" my-10 sm:my-20 flex w-[100%] flex-col items-center"
@@ -71,7 +77,7 @@ function ReviewPage() {
                             </div>
                         </div>
                     </div>
-                ))
+                )))
             }
         </div>
     );
