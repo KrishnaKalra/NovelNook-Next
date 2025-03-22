@@ -8,7 +8,6 @@ export async function GET(req: Request,props: { params: Promise<{ id: string }> 
     try {
         await dbConnect();
         const session = await getServerSession(authOptions)
-        const user: User = session?.user as User;
         
         if (!session || !session.user) {
             return Response.json(
@@ -21,7 +20,7 @@ export async function GET(req: Request,props: { params: Promise<{ id: string }> 
         }
         
         const {id}=await props.params;
-        console.log(id);
+        //console.log(id);
         const review = await getReviewById(id);
         return NextResponse.json(review);
     } catch (error) {
@@ -33,7 +32,6 @@ export async function PUT(req: Request, props: { params: Promise<{ id: string }>
     try {
         await dbConnect();
         const session = await getServerSession(authOptions)
-        const user: User = session?.user as User;
 
         if (!session || !session.user) {
             return Response.json(
@@ -46,8 +44,8 @@ export async function PUT(req: Request, props: { params: Promise<{ id: string }>
         }
         const body = await req.json();
         const {id}=await props.params;
-        console.log(body);
-        console.log(id);
+        //console.log(body);
+        //console.log(id);
         const updatedReview = await updateReview(id, body);
         return NextResponse.json(updatedReview);
     } catch (error) {
@@ -59,7 +57,6 @@ export async function DELETE(req: Request,  props: { params: Promise<{ id: strin
     try {
         await dbConnect();
         const session = await getServerSession(authOptions)
-        const user: User = session?.user as User;
 
         if (!session || !session.user) {
             return Response.json(

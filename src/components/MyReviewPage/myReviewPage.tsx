@@ -20,9 +20,9 @@ function ReviewPage() {
         fetchReview();
     },[user])
     const fetchReview = async () => {
-        let response;
-        response=await axios.get(`/api/userReview/${user._id}`);
-        console.log(response.data);
+        
+        let response=await axios.get(`/api/userReview/${user._id}`);
+        //console.log(response.data);
         setData(response.data);
     };
     const deleteReview= async(reviewId:string)=>{

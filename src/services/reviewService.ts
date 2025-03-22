@@ -12,7 +12,7 @@ export const createReview = async (reviewData: Partial<IReview>) => {
 
 export const getAllReviews = async (filter = {}) => {
     try {
-        console.log('hi');
+        //console.log('hi');
         return await Review.find(filter).populate("userId", "username email");
     } catch (error) {
         throw new Error(`Failed to get reviews: ${(error as Error).message}`);

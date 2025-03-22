@@ -21,20 +21,20 @@ export const authOptions: NextAuthOptions = {
                             { username: credentials.identifier }
                         ]
                     });
-                    console.log(user);
+                    //console.log(user);
                     if (!user) {
-                        console.log('No user found with this email')
+                        //console.log('No user found with this email')
                         throw new Error('No user found with this email')
                     }
                     if (!user.isVerified) {
-                        console.log('Please verify your account before login')
+                        //console.log('Please verify your account before login')
                         throw new Error('Please verify your account before login')
                     }
                     const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
                     if (isPasswordCorrect) {
                         return user;
                     } else {
-                        console.log('Incorrect Password')
+                        //console.log('Incorrect Password')
                         throw new Error('Incorrect Password')
                     }
 

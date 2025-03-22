@@ -39,7 +39,7 @@ const Page = () => {
     if (result?.error) {
       toast("Login Failed " + "Incorrect username or password");
     }
-    console.log(result);
+    //console.log(result);
     if (result?.url) {
       router.replace('/');
       router.refresh();

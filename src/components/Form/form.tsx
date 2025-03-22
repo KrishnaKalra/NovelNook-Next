@@ -42,7 +42,7 @@ const MyForm = ({ reviewId }) => {
   useEffect(() => {
     const getDefault = async () => {
       const response = await axios.get(`/api/reviews/${reviewId}`);
-      console.log(response.data);
+      //console.log(response.data);
       form.setValue('isbn', response.data.isbn)
       form.setValue("author", response.data.author);
       form.setValue("title", response.data.title);
@@ -59,7 +59,7 @@ const MyForm = ({ reviewId }) => {
     },
   });
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    //console.log(values);
     try {
       if (reviewId) {
         const response = await axios.put(`/api/reviews/${reviewId}`, values, {
@@ -115,8 +115,11 @@ const MyForm = ({ reviewId }) => {
                     placeholder="ISBN"
                     {...field}
                     onChange={(e) => {
-                      form.setValue("isbn", e.target.value);
-                      console.log(form.watch("isbn"));
+                      let val=e.target.value;
+                      val=val.trim();
+                      //console.log(val);
+                      form.setValue("isbn", val);
+                      //console.log(form.watch("isbn"));
                     }}
                   />
                 </FormControl>

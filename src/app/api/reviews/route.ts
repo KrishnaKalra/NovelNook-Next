@@ -9,7 +9,6 @@ export async function GET() {
     try {
         await dbConnect();
         const session=await getServerSession(authOptions)
-        const user:User=session?.user as User;
 
         if(!session||!session.user){
             return Response.json(
@@ -30,7 +29,6 @@ export async function GET() {
 export async function POST(req: Request) {
     try {
         const session=await getServerSession(authOptions)
-        const user:User=session?.user as User;
 
         if(!session||!session.user){
             return Response.json(
@@ -45,7 +43,7 @@ export async function POST(req: Request) {
         await dbConnect();
         
         let body = await req.json();
-        console.log(body);
+        //console.log(body);
         let parsedData = ReviewSchema.parse(body); 
         if (!mongoose.Types.ObjectId.isValid(parsedData.userId)) {
             throw new Error("Invalid userId format");

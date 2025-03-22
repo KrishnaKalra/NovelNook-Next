@@ -17,10 +17,10 @@ export async function POST(request:Request){
      const decodedUsername=decodeURIComponent(username);
 
         const result=VerifyBodySchema.safeParse({code});
-        console.log(result);
+        //console.log(result);
         if(!result.success){
             const codeErrors=result.error.format().code?._errors||[];
-            console.log(result.error);
+            //console.log(result.error);
             return Response.json({
                 success:false,
                 message:codeErrors?.length>0?codeErrors.join(', '):'Invalid body params',
