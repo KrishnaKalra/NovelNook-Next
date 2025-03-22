@@ -1,23 +1,19 @@
 "use client"
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod';
-import axios, { AxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 import React, { useEffect, useState } from 'react'
-import { useDebounceValue,useDebounceCallback } from 'usehooks-ts'
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
-import { signUpSchema } from '@/validators/signUpSchema';
-import { ApiResponse } from '@/types/ApiResponse';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { signInSchema } from '@/validators/signInSchema';
 import { signIn } from 'next-auth/react';
+import { Loader2 } from 'lucide-react';
 const Page = () => {
-  
+
   const [isSubmitting, setisSubmitting] = useState(false);
 
   const router = useRouter();
@@ -34,17 +30,21 @@ const Page = () => {
 
 
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
-    const result=await signIn('credentials',{
-      redirect:false,
-      identifier:data.identifier,
-      password:data.password
+    setisSubmitting(true);
+    const result = await signIn('credentials', {
+      redirect: false,
+      identifier: data.identifier,
+      password: data.password
     })
-    if(result?.error){
-      toast("Login Failed "+"Incorrect username or password");
+    if (result?.error) {
+      toast("Login Failed " + "Incorrect username or password");
     }
-    if(result?.url){
+    console.log(result);
+    if (result?.url) {
       router.replace('/');
+      router.refresh();
     }
+    setisSubmitting(false);
   }
   return (
     <div className="flex justify-center items-center min-h-screen">
@@ -87,16 +87,21 @@ const Page = () => {
               )}
             />
 
-             <Button type='submit' disabled={isSubmitting}>
-              Sign In
-             </Button>
+            <Button type='submit' disabled={isSubmitting}>
+            {
+              isSubmitting ? (
+                <Loader2 className='mr-2  h-4 w-4 animate-spin' />
+              ) : ('Sing In')
+            }
+            </Button>
+            
           </form>
         </Form>
         <div className='text-center mt-4'>
           <p>
             New to NovelNook?{' '}
             <Link href='/sign-up' className='text-blue-600 hover:text-blue-800'>
-            Sign Up</Link>
+              Sign Up</Link>
           </p>
         </div>
       </div>

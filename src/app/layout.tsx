@@ -5,10 +5,6 @@ import Footer from "@/components/Footer/footer";
 import Header from "@/components/Header/header";
 import AuthProvider from "@/context/AuthProvider";
 import { Toaster } from "sonner";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 const alegreyaSc = Alegreya_SC({
   variable: "--font-alegreya-sc",
   subsets: ['latin'],
@@ -34,10 +30,7 @@ const encodeSansSemiCondensed = Encode_Sans_Semi_Condensed({
   weight: ['400'],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",

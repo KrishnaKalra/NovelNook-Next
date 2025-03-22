@@ -12,7 +12,6 @@ import axios from "axios";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -31,23 +30,18 @@ const formSchema = z.object({
     .max(250, { message: "Review cannot exceed 250 characters." }),
   userId: z.string(),
 });
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useSession } from "next-auth/react";
 import { User } from "next-auth";
 const MyForm = ({ reviewId }) => {
-  let [defaultData, setDefaultData] = useState({
-    isbn: '',
-    comment: '',
-  });
+ 
   const { data: session } = useSession();
-  const [userId, setUserId] = useState('');
   let user: User = session?.user as User;
   const route = useRouter();
   useEffect(() => {
     const getDefault = async () => {
       const response = await axios.get(`/api/reviews/${reviewId}`);
-      setDefaultData(response.data);
       console.log(response.data);
       form.setValue('isbn', response.data.isbn)
       form.setValue("author", response.data.author);

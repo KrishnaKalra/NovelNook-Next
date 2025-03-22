@@ -1,7 +1,4 @@
 import React from 'react'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Button } from '@/components/ui/button'
 import MyForm from '@/components/Form/form'
 import Image from 'next/image'
 const review = () => {
