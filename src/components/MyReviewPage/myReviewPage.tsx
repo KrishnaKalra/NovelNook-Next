@@ -42,7 +42,7 @@ function ReviewPage() {
     return (
         <div className="mt-10 min-h-[100vh]" >
             {(isLoading) ? (
-                <div className='h-[100vh] w-[100vw] flex justify-center items-center'>
+                <div className='h-[70vh] w-[100vw] flex justify-center items-center'>
                     <div className="border-gray-200 h-20 w-20 animate-spin rounded-full border-8 border-t-black" /> </div>) : (data.length != 0 ?
                         (data.map((one, index) => (
                             <div
